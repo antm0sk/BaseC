@@ -1,21 +1,23 @@
 #include <stdio.h>
 
-int main() {
-    int a, b, c, d, e;
-    int max, min;
-    
-    
-    scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
-    
-    // Наркомания с тернарниками(но лучше так не делать)
-    max = (a > b) ? ((a > c) ? ((a > d) ? ((a > e) ? a : e) : (d > e ? d : e)) : (c > d ? (c > e ? c : e) : (d > e ? d : e))) :
-          (b > c ? ((b > d) ? ((b > e) ? b : e) : (d > e ? d : e)) : (c > d ? (c > e ? c : e) : (d > e ? d : e)));
+int main()
+{
+      int a, b, c, d, e;
+      int max, min;
 
-    min = (a < b) ? ((a < c) ? ((a < d) ? ((a < e) ? a : e) : (d < e ? d : e)) : (c < d ? (c < e ? c : e) : (d < e ? d : e))) :
-          (b < c ? ((b < d) ? ((b < e) ? b : e) : (d < e ? d : e)) : (c < d ? (c < e ? c : e) : (d < e ? d : e)));
+      scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
 
-    
-    printf("%d\n", max + min);
-    
-    return 0;
+      int max = (a > b ? a : b);
+      max = (max > c ? max : c);
+      max = (max > d ? max : d);
+      max = (max > e ? max : e);
+
+      int min = (a < b ? a : b);
+      min = (min < c ? min : c);
+      min = (min < d ? min : d);
+      min = (min < e ? min : e);
+
+      printf("%d\n", max + min);
+
+      return 0;
 }
